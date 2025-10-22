@@ -1,0 +1,1521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navigacija */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #85825e, #b09f3b, #7a6c1a);
+    /* crveni gradijent */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    transition: background 0.4s ease, padding 0.3s ease;
+}
+
+/* Kad se skrola — smanji visinu i pojačaj kontrast */
+.navbar.scrolled {
+    background: linear-gradient(90deg, #b09f3b, #7a6c1a);
+    padding: 10px 60px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔸 Logo */
+.logo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #fff, #f3e3b3);
+    /* zlatno-bijeli ton */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(125, 101, 45, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* 🔹 Navigacijske poveznice */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 45px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efekt linije ispod linka */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #f6d28a;
+    /* zlatna linija */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #f6d28a;
+    transform: translateY(-2px);
+}
+
+/* Aktivni link */
+.nav-links a.active {
+    color: #f6d28a;
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+
+.home-title {
+    position: absolute;
+    /* centrirano u okviru .home-section */
+    top: 20%;
+    left: 50%;
+    text-align: center;
+    z-index: 3;
+    color: #fff;
+    width: 100%;
+    max-width: 900px;
+    /* ograniči širinu */
+}
+
+.home-title>h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff;
+    text-stroke: 2px #ffffff;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1.5s ease-out forwards;
+    white-space: nowrap;
+}
+
+.home-title>h1::after {
+    content: "";
+    display: block;
+    width: 1200px;
+    /* dužina linije */
+    height: 3px;
+    /* debljina linije */
+    margin: 15px auto 0;
+    /* razmak od teksta i centriranje */
+    background: linear-gradient(90deg, #ffffff, #d4c58a, #ffffff);
+    /* blagi zlatno-bijeli efekt */
+    border-radius: 2px;
+    animation: underlineGrow 1.5s ease-out forwards;
+}
+
+/* Animacija da linija "naraste" ispod teksta */
+@keyframes underlineGrow {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 980px;
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -70%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Početna */
+.home-section {
+    position: relative;
+    height: 100vh;
+    overflow: visible;
+    padding-bottom: 80px;
+}
+
+.home-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/bg_1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    animation: fadeSlide 20s infinite;
+}
+
+.home-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/bg_2.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    animation: fadeSlideAlt 20s infinite;
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlideAlt {
+    0% {
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.home-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(138, 82, 82, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 30px;
+    pointer-events: none;
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.home-content p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-content {
+    animation: textFadeIn 20s infinite;
+}
+
+.home-content-alt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    animation: textFadeOut 20s infinite;
+}
+
+.home-content-alt h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.home-content-alt p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes textFadeOut {
+    0% {
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.trust-banner {
+    position: absolute;
+    bottom: -10%;
+    left: 10%;
+    right: 10%;
+    background: linear-gradient(135deg, #666 0%, #7a6c1a 100%);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1.2s ease-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trust-banner p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #e6d9b8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.offer-btn {
+    margin-top: 15px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #bacf7a, #c4e772);
+    color: #5c4e01;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(186, 207, 122, 0.3);
+}
+
+.offer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(186, 207, 122, 0.4);
+}
+
+.section {
+    padding: 100px 80px;
+    margin-top: 5%;
+    text-align: center;
+}
+
+/* Usluge */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 5px;
+    margin-top: 5%;
+}
+
+.service-info {
+  display: none;
+  font-size: 0.9rem;
+  color: #f3f3f3;
+  margin-top: 12px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+}
+
+.service-card.active .service-info {
+  display: block;
+}
+
+.service-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.service-card ul li {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+
+
+.service-card {
+    background: linear-gradient(135deg, #746535, #8b7a4a);
+    padding: 30px 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Proizvodi - CAROUSEL */
+.products-section {
+    position: relative;
+    padding: 100px 80px;
+}
+
+.products-container {
+    position: relative;
+    overflow: hidden;
+    padding: 0 80px;
+}
+
+.products-grid {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    width: 33.333%;
+    /* fiksna širina po redu */
+    flex: 0 0 33.333%;
+    /* 🟢 ovo govori flexboxu: ne rasteži, koristi točno tu širinu */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.product:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.product-btn {
+    padding: 10px 20px;
+    background: #bed020;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.product-btn:hover {
+    background: #898d1e;
+}
+
+
+.product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.product:hover img {
+    transform: scale(1.08);
+    filter: brightness(60%);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+}
+
+.product:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-overlay h3 {
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.product-overlay button {
+    padding: 10px 20px;
+    background: #a1a61e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.product-overlay button:hover {
+    background: #c4d63c;
+}
+
+/* Scroll Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #96a831, #aebc17);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(166, 30, 30, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: linear-gradient(135deg, #d63c3c, #ff4444);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(166, 30, 30, 0.5);
+}
+
+.carousel-btn.prev {
+    left: 0;
+}
+
+.carousel-btn.next {
+    right: 0;
+}
+
+/* O nama */
+.about-section {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url('./img/vozila/IMG-20251015-WA0011.jpg') center/cover no-repeat;
+    padding: 60px 20px;
+    overflow: hidden;
+}
+
+/* Glavni kontejner */
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(1px);
+}
+
+/* Naslov */
+.about-content h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ffffff, #f6d28a, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Tekst */
+.about-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f3f3f3;
+    text-align: justify;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+}
+
+/* Partner logo */
+.partner-logo {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.partner-logo img {
+    width: 150px;
+    height: auto;
+    filter: brightness(95%) contrast(105%);
+    transition: transform 0.3s ease;
+}
+
+.partner-logo img:hover {
+    transform: scale(1.05);
+}
+
+.partner-logo p {
+    font-size: 0.95rem;
+    color: #e6d9b8;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    /* makni underline */
+    color: inherit;
+}
+
+.partner-logo a:hover p {
+    color: #f6d28a;
+    /* opcionalno – mala promjena boje na hover */
+}
+
+/* Kontakt */
+.contact-card {
+    background: #7a6c1a;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.form-section,
+.faq-section {
+    flex: 1 1 45%;
+    text-align: left;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: border 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #9a9c17;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: #5c4e01;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(166, 30, 30, 0.3);
+}
+
+/* FAQ */
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #a61e1e;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 10px;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Fade-in animacija sekcija */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* FONTS */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: linear-gradient(90deg, #85825e, #b09f3b, #7a6c1a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* RESPONSIVNOST */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 40px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 35px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
+    .home-title>h1 {
+        font-size: clamp(3rem, 5vw, 4rem);
+        -webkit-text-stroke: 1.5px #fff;
+    }
+
+    .home-content h1 {
+        font-size: clamp(1.8rem, 4vw, 2.3rem);
+    }
+
+    .home-content p {
+        font-size: 1.1rem;
+    }
+
+    .products-section {
+        padding: 80px 40px;
+    }
+
+    .products-container {
+        padding: 0 40px;
+    }
+
+    .product {
+        height: 350px;
+        flex: 0 0 33.333%;
+        width: 33.333%;
+    }
+
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .trust-banner {
+        bottom: 0%;
+        left: 10%;
+        right: 10%;
+        transform: translateY(30%);
+        padding: 30px 25px;
+    }
+
+    .trust-banner p {
+        font-size: 1.1rem;
+    }
+
+    .offer-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 80px 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .service-card {
+        padding: 25px 20px;
+    }
+
+    .about-section {
+        height: 70vh;
+    }
+
+    .about-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .about-section p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .home-section {
+        margin-top: 70px;
+        /* Same height as mobile-header */
+    }
+
+    .mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: linear-gradient(135deg, #85825e, #b09f3b, #7a6c1a);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 25px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        z-index: 1100;
+    }
+
+    .mobile-header.scrolled {
+        height: 50px;
+        padding: 0 15px;
+        background: linear-gradient(180deg, #7a6c1a, #b09f3b);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-header.scrolled .mobile-logo-text {
+        font-size: 1rem;
+        transition: font-size 0.3s ease;
+    }
+
+    .mobile-logo-box {
+        padding: 10px 22px;
+    }
+
+    .mobile-logo-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .about-section {
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    .about-content {
+        padding: 25px 20px;
+    }
+
+    .about-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .partner-logo img {
+        width: 120px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1200;
+    }
+
+    .hamburger span {
+        width: 28px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(180deg, #85825e, #b09f3b, #7a6c1a);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 45px;
+        transform: translateY(-100%);
+        transition: transform 0.4s ease;
+        z-index: 1000;
+    }
+
+    .nav-links.show {
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #f6d28a;
+    }
+
+    /* Home naslov */
+    .home-title {
+        top: 15%;
+        left: 50%;
+        text-align: center;
+        width: 100%;
+    }
+
+    .home-title>h1 {
+        font-size: clamp(2.5rem, 5vw, 3rem);
+        -webkit-text-stroke: 1.5px #fff;
+        line-height: 1.2;
+        white-space: normal;
+    }
+
+    /* Carousel i sekcije */
+    .products-section {
+        padding: 50px 25px;
+    }
+
+    .products-container {
+        padding: 0 25px;
+    }
+
+    .product {
+        height: 320px;
+        flex: 0 0 50%;
+        width: 50%;
+    }
+
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    /* Banner */
+    .trust-banner {
+        bottom: 5%;
+        left: 8%;
+        right: 8%;
+        transform: translateY(-50%);
+        background: linear-gradient(135deg, #5c4e01, #7a6c1a);
+        padding: 25px 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .trust-banner p {
+        font-size: 1rem;
+        color: #e6d9b8;
+        margin-bottom: 10px;
+    }
+
+    .offer-btn {
+        padding: 10px 28px;
+        font-size: 0.9rem;
+    }
+
+    /* Sekcije */
+    .section {
+        padding: 60px 25px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 20px 15px;
+        font-size: 0.9rem;
+    }
+
+    .about-section {
+        height: 65vh;
+    }
+
+    .about-section h2 {
+        font-size: 2.2rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 1.2rem;
+    }
+    section {
+    scroll-margin-top: 40px; /* visina headera + mali razmak */
+}
+
+    /* MOBILE HEADER - MORA BITI FIXED */
+    .mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background: linear-gradient(180deg, #85825e, #b09f3b, #7a6c1a);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 10000;
+        /* Iznad svega */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .mobile-header.scrolled {
+        height: 50px;
+        padding: 0 15px;
+        background: linear-gradient(180deg, #7a6c1a, #b09f3b);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-header.scrolled .mobile-logo-text {
+        font-size: 1rem;
+        transition: font-size 0.3s ease;
+    }
+
+
+    .mobile-logo-box {
+        padding: 10px 18px;
+    }
+
+    .mobile-logo-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    /* HAMBURGER - MORA BITI IZNAD NAV-LINKS */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 10001;
+        /* Iznad nav-links */
+        position: relative;
+    }
+
+    .hamburger span {
+        width: 26px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* NAV LINKS - FULLSCREEN MENU */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70vh;
+        background: linear-gradient(180deg, #85825e, #b09f3b, #7a6c1a);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 9999;
+        /* Ispod hamburgera */
+    }
+
+    .nav-links.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links li {
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #f6d28a;
+    }
+
+    /* HOME SECTION - DODAJ MARGIN ZA FIXED HEADER */
+    .home-section {
+        margin-top: 65px;
+    }
+
+    .home-title {
+        top: 10%;
+        left: 50%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .home-title>h1 {
+        font-size: clamp(2.3rem, 6vw, 2.2rem);
+        -webkit-text-stroke: 1px #ffffff;
+        -webkit-text-stroke-color: rgb(255, 255, 255);
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.2;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .home-title>h1::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    .home-content h1,
+    .home-content-alt h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p,
+    .home-content-alt p {
+        font-size: 0.85rem;
+        padding: 0 10px;
+    }
+
+    .section {
+        padding: 50px 15px;
+    }
+
+    .products-section {
+        padding: 20px 15px;
+    }
+
+    .products-container {
+        padding: 0 15px;
+    }
+
+    .product {
+        height: 220px;
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .trust-banner {
+        position: absolute;
+        left: 5%;
+        right: 5%;
+        bottom: 10%;
+        transform: translateY(-50%);
+        background: linear-gradient(135deg, #5c4e01 0%, #7a6c1a 100%);
+        border-radius: 15px;
+        padding: 20px 15px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        z-index: 3;
+        opacity: 0;
+        animation: slideUp 1.2s ease-out forwards;
+        animation-delay: 1s;
+    }
+
+    .trust-banner p {
+        font-size: 0.85rem;
+        color: #e6d9b8;
+        margin-bottom: 12px;
+    }
+
+    .offer-btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 15px 12px;
+        font-size: 0.85rem;
+    }
+
+    .contact-card {
+        padding: 20px 15px;
+    }
+
+    .contact-card h3,
+    .contact-card p {
+        font-size: 0.9rem;
+    }
+
+    form input,
+    form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    form button {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .faq-question {
+        font-size: 0.9rem;
+    }
+
+    .faq-answer {
+        font-size: 0.85rem;
+    }
+
+    .about-section {
+        height: auto;
+        padding: 35px 12px;
+    }
+
+    .about-content {
+        padding: 18px 15px;
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    .about-content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .about-text {
+        font-size: 0.85rem;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    .about-text p {
+        margin-bottom: 10px;
+    }
+
+    .partner-logo {
+        margin-top: 15px;
+        gap: 5px;
+    }
+
+    .partner-logo img {
+        width: 90px;
+        filter: brightness(98%);
+    }
+
+    .partner-logo p {
+        font-size: 0.75rem;
+        color: #f0e8c5;
+    }
+}
+
+/* SPRIJEČI HORIZONTALNI SCROLL, OPTIMIZIRANO */
+html,
+body {
+    overflow-x: clip;
+    /* koristi clip umjesto hidden — bolje performanse */
+    width: 100%;
+    max-width: 100%;
+    overscroll-behavior: none;
+    /* sprječava trzaje kod brzog skrola */
+    scroll-behavior: smooth;
+}
+
+/* Spriječi trzaje na animiranim pozadinama */
+.home-section::before,
+.home-section::after {
+    will-change: opacity;
+    transform: translateZ(0);
+    /* aktivira GPU renderiranje */
+}
+
+/* Omekšaj skrolanje i animacije */
+body {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ako trust-banner iskače van, ograniči mu overflow */
+.trust-banner {
+    overflow: hidden;
+}
+
+/* CSS ZA PROIZVODI.HTML */
+
+.product-detail {
+  padding: 120px 40px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, #5c4e01, #7a6c1a);
+  min-height: 100vh;
+}
+
+.product-detail h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ffffff, #f6d28a, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.product-detail p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-gallery img {
+  width: 300px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.product-gallery img:hover {
+  transform: scale(1.05);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #a1a61e, #c4d63c);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #89961e, #b8c22f);
+  transform: translateY(-2px);
+}

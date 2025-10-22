@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proizvodi - Stolarija Tukara</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background: linear-gradient(180deg, #8a7b40 0%, #a8933b 35%, #7a6c1a 100%);
+            color: #fff;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(180deg, #85825e, #b09f3b, #7a6c1a);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f6d28a;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== MOBILE MENU ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: 0;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(180deg, #85825e, #b09f3b, #7a6c1a);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+                z-index: 9999;
+            }
+
+            .nav-links.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== GLAVNI SADRŽAJ ===== */
+        .product-detail {
+            padding-top: 90px;
+            text-align: center;
+        }
+
+        .product-detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .back-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 42px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #3a2e0a, #5a4814);
+            color: #f6d28a;
+            border: 1px solid #c4a94d;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .back-arrow:hover {
+            background: linear-gradient(135deg, #e4a526, #c4a94d);
+            color: #746f5e;
+            transform: translateX(-3px);
+            box-shadow: 0 4px 14px rgba(246, 210, 138, 0.4);
+        }
+
+
+        .product-detail h1 {
+            font-size: 2.6rem;
+            color: #ffffff;
+            -webkit-text-fill-color: #ffffff;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+
+        .product-detail p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #f7f7f7;
+        }
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            padding: 0 30px 80px;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .product-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 2000;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #f6d28a;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 40px;
+        }
+
+        .lightbox-nav button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.3s;
+        }
+
+        .lightbox-nav button:hover {
+            transform: scale(1.2);
+            color: #f6d28a;
+        }
+
+        /* ===== PRELOADER ===== */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #5c4e01, #7a6c1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            /* iznad svega */
+            transition: opacity 0.4s ease;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 45px;
+            height: 45px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #f6d28a;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Blagi fade-in na cijeli body */
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Stolarija Tukara</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Početna</a></li>
+            <li><a href="index.html#services">Usluge</a></li>
+            <li><a href="index.html#products">Proizvodi</a></li>
+            <li><a href="index.html#about">O nama</a></li>
+            <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <section class="product-detail" id="productDetail"></section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <div class="lightbox-nav">
+            <button id="prevBtn">❮</button>
+            <button id="nextBtn">❯</button>
+        </div>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script>
+        // === HAMBURGER ===
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener("click", (e) => {
+                e.stopPropagation();
+                hamburger.classList.toggle("active");
+                navLinks.classList.toggle("show");
+            });
+
+            document.querySelectorAll(".nav-links a").forEach(link => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navLinks.classList.remove("show");
+                });
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(".nav-links") && !e.target.closest(".hamburger")) {
+                    hamburger.classList.remove("active");
+                    navLinks.classList.remove("show");
+                }
+            });
+        }
+
+        // === PRODUCT GALLERY ===
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get("type");
+
+        const productData = {
+            prozori: {
+                title: "PVC Prozori",
+                description: "PVC prozori izrađeni od GEALAN profila pružaju izvrsnu toplinsku i zvučnu izolaciju, dugotrajnost i moderan dizajn.",
+                images: [
+                    "./img/prozori/IMG-20251015-WA0009.jpg",
+                    "./img/prozori/IMG-20251015-WA0021.jpg",
+                    "./img/prozori/IMG-20251015-WA0022.jpg",
+                    "./img/prozori/IMG-20251015-WA0023.jpg",
+                    "./img/prozori/IMG-20251015-WA0025.jpg",
+                    "./img/prozori/IMG-20251015-WA0028.jpg",
+                    "./img/prozori/IMG-20251015-WA0030.jpg",
+                    "./img/prozori/IMG-20251015-WA0032.jpg",
+                    "./img/prozori/IMG-20251015-WA0040.jpg"
+                ]
+            },
+            vrata: {
+                title: "ALU Vrata",
+                description: "Aluminijska vrata kombiniraju eleganciju i čvrstoću, idealna su za moderne domove i poslovne prostore.",
+                images: [
+                    "./img/vrata/IMG-20251015-WA0005.jpg",
+                    "./img/vrata/IMG-20251015-WA0006.jpg",
+                    "./img/vrata/IMG-20251015-WA0007.jpg",
+                    "./img/vrata/IMG-20251015-WA0018.jpg",
+                    "./img/vrata/IMG-20251015-WA0019.jpg",
+                    "./img/vrata/IMG-20251015-WA0020.jpg",
+                    "./img/vrata/IMG-20251015-WA0026.jpg",
+                    "./img/vrata/IMG-20251015-WA0037.jpg",
+                    "./img/vrata/IMG-20251015-WA0039.jpg",
+                    "./img/vrata/IMG-20251015-WA0044.jpg"
+
+                ]
+            },
+            klizne_stijene: {
+                title: "Klizne stijene",
+                description: "Klizne stijene u HST, PSK i Smoovio sustavima omogućuju prostranost i maksimalno svjetlo u prostoru.",
+                images: [
+                    "./img/klizne_stijene/IMG-20251015-WA0010.jpg",
+                    "./img/klizne_stijene/IMG-20251015-WA0013.jpg",
+                    "./img/klizne_stijene/IMG-20251015-WA0017.jpg",
+                    "./img/klizne_stijene/IMG-20251015-WA0024.jpg",
+                    "./img/klizne_stijene/IMG-20251015-WA0027.jpg",
+                    "./img/klizne_stijene/IMG-20251015-WA0031.jpg",
+                    "./img/klizne_stijene/IMG-20251015-WA0033.jpg",
+
+                ]
+            },
+            zavrseni_projekti: {
+                title: "Završeni projekti",
+                description: "Naši završeni projekti prikazuju kvalitetu i preciznost izvedbe u stvarnim objektima. U projektima su korišteni sustavi PVC i drvene stolarije – prozori i vrata izrađeni po mjeri, koji kombiniraju funkcionalnost, estetiku i dugotrajnost.",
+                images: [
+                    "./img/kompletne_kuce/IMG-20251015-WA0016.jpg",
+                    "./img/kompletne_kuce/IMG-20251015-WA0041.jpg",
+                    "./img/kompletne_kuce/IMG-20251015-WA0042.jpg",
+                    "./img/plava_stolarija/IMG-20251015-WA0004.jpg",
+                    "./img/plava_stolarija/IMG-20251015-WA0004.jpg",
+                    "./img/plava_stolarija/IMG-20251015-WA0004.jpg",
+
+                ]
+            }
+        };
+
+        const container = document.getElementById("productDetail");
+        const product = productData[type];
+
+        if (product) {
+            container.innerHTML = `
+  <a href="index.html#products" class="back-arrow">⟵</a>
+  <div class="product-detail-header">
+    <h1>${product.title}</h1>
+  </div>
+  <p>${product.description}</p>
+  <div class="product-gallery">
+    ${product.images.map((src, i) => `<img src="${src}" data-index="${i}" alt="${product.title}">`).join("")}
+  </div>
+`;
+
+        } else {
+            container.innerHTML = `<h1>Proizvod nije pronađen</h1>`;
+        }
+
+        // === LIGHTBOX ===
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const closeBtn = document.getElementById("closeBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            lightboxImg.src = product.images[currentIndex];
+            lightbox.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % product.images.length;
+            lightboxImg.src = product.images[currentIndex];
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + product.images.length) % product.images.length;
+            lightboxImg.src = product.images[currentIndex];
+        }
+
+        document.addEventListener("click", (e) => {
+            if (e.target.matches(".product-gallery img")) {
+                openLightbox(parseInt(e.target.dataset.index));
+            }
+        });
+
+        closeBtn.addEventListener("click", closeLightbox);
+        nextBtn.addEventListener("click", showNext);
+        prevBtn.addEventListener("click", showPrev);
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        // === PRELOADER & PAGE RESET ===
+        window.addEventListener("pageshow", () => {
+            // Resetiraj stanja ako se vratiš unazad
+            document.querySelectorAll(".lightbox").forEach(l => l.style.display = "none");
+            document.querySelectorAll(".nav-links").forEach(n => n.classList.remove("show"));
+            document.querySelectorAll(".hamburger").forEach(h => h.classList.remove("active"));
+        });
+
+        // Kad se sve slike i sadržaj učitaju
+        window.addEventListener("load", () => {
+            const preloader = document.getElementById("preloader");
+            document.body.classList.add("loaded");
+            preloader.classList.add("hidden");
+
+            // Ukloni preloader nakon fade-out
+            setTimeout(() => preloader.remove(), 600);
+        });
+
+    </script>
+</body>
+
+</html>
