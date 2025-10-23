@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   try {
     const response = await resend.emails.send({
       from: 'Stolarija Tukara <info@stolarija-tukara.hr>', 
-      to: ['knezevic3112@gmail.com'],
+      to: ['drago.tukara95@gmail.com '],
       subject: `Nova poruka od ${name}`,
       html: `
         <h2>Nova poruka s web stranice</h2>
