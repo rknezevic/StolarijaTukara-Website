@@ -5,6 +5,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stolarija Tukara</title>
+    <!-- SEO META TAGOVI -->
+    <meta name="description"
+        content="Stolarija Tukara – izrada, montaža i prodaja PVC i ALU stolarije po mjeri. Nudimo prozore, vrata, klizne stijene i završne elemente vrhunske kvalitete. Pouzdanost, preciznost i dugotrajnost.">
+    <meta name="keywords"
+        content="stolarija, PVC prozori, ALU vrata, klizne stijene, komarnici, žaluzine, Gealan, stolarija Babina Greda, izrada prozora, ugradnja vrata, hrvatska stolarija">
+    <meta name="author" content="Stolarija Tukara">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="hr">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph (za društvene mreže) -->
+    <meta property="og:title" content="Stolarija Tukara | PVC i ALU stolarija po mjeri">
+    <meta property="og:description"
+        content="Izrada i ugradnja PVC i ALU prozora, vrata i stijena vrhunske kvalitete. Obrt Stolarija Tukara – kvaliteta koja traje.">
+    <meta property="og:image" content="https://stolarija-tukara.hr/img/preview.png">
+    <!-- zamijeni slikom logotipa ili naslovne slike -->
+    <meta property="og:url" content="https://stolarija-tukara.hr/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hr_HR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stolarija Tukara | PVC i ALU stolarija po mjeri">
+    <meta name="twitter:description"
+        content="Kvalitetna PVC i ALU stolarija – prozori, vrata, klizne stijene i komarnici. Stolarija Tukara – dugotrajnost i preciznost.">
+    <meta name="twitter:image" content="https://stolarija-tukara.hr/img/preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://stolarija-tukara.hr/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+
+    <!-- Schema.org (strukturirani podaci o firmi) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Stolarija Tukara",
+  "image": "https://stolarija-tukara.hr/img/preview.png",
+  "url": "https://stolarija-tukara.hr/",
+  "telephone": "+385 91 234 5678",
+  "email": "drago.tukara95@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kralja Tomislava 21A",
+    "addressLocality": "Babina Greda",
+    "postalCode": "32276",
+    "addressCountry": "HR"
+  },
+  "description": "Stolarija Tukara izrađuje PVC i ALU stolariju vrhunske kvalitete. Nudimo prozore, vrata, stijene i završne elemente uz montažu.",
+  "openingHours": "Mo-Fr 08:00-16:00",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.112,
+    "longitude": 18.525
+  },
+  "sameAs": [
+    "https://www.facebook.com/",
+    "https://www.instagram.com/"
+  ]
+}
+</script>
+
+    <!-- Dinamički SEO meta tagovi -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get("type");
+
+        const seoMeta = {
+            prozori: {
+                title: "PVC Prozori | Stolarija Tukara",
+                description:
+                    "PVC prozori izrađeni po mjeri od GEALAN profila. Osigurajte toplinsku i zvučnu izolaciju uz moderan dizajn i dugotrajnost. Stolarija Tukara – kvaliteta koja traje.",
+                keywords:
+                    "PVC prozori, Gealan, PVC stolarija, prozori po mjeri, energetski učinkoviti prozori, stolarija Babina Greda",
+            },
+            vrata: {
+                title: "ALU Vrata | Stolarija Tukara",
+                description:
+                    "Elegantna i čvrsta aluminijska vrata izrađena po mjeri. Idealna za moderne domove i poslovne prostore. Izrada i montaža – Stolarija Tukara.",
+                keywords:
+                    "ALU vrata, aluminijska vrata, vanjska vrata, ulazna vrata, aluminijska stolarija, moderna vrata",
+            },
+            klizne_stijene: {
+                title: "Klizne stijene | Stolarija Tukara",
+                description:
+                    "HST, PSK i Smoovio klizne stijene – maksimalno svjetlo, minimalan prag i vrhunska toplinska izolacija. Rješenja po mjeri iz Stolarije Tukara.",
+                keywords:
+                    "klizne stijene, HST stijene, PSK, Smoovio, staklene stijene, prozori, vrata, aluminij, PVC, Gealan",
+            },
+            zavrseni_projekti: {
+                title: "Završeni projekti | Stolarija Tukara",
+                description:
+                    "Pregled naših završenih projekata s PVC i drvenom stolarijom. Pogledajte primjere izrade prozora i vrata u stvarnim objektima.",
+                keywords:
+                    "završeni projekti, reference, stolarija projekti, drvena stolarija, PVC prozori, ALU vrata, Babina Greda",
+            },
+        };
+
+        const meta = seoMeta[type];
+
+        if (meta) {
+            document.title = meta.title;
+
+            const metaDesc = document.createElement("meta");
+            metaDesc.name = "description";
+            metaDesc.content = meta.description;
+            document.head.appendChild(metaDesc);
+
+            const metaKeywords = document.createElement("meta");
+            metaKeywords.name = "keywords";
+            metaKeywords.content = meta.keywords;
+            document.head.appendChild(metaKeywords);
+
+            // Open Graph za dijeljenje
+            const ogTitle = document.createElement("meta");
+            ogTitle.setAttribute("property", "og:title");
+            ogTitle.content = meta.title;
+            document.head.appendChild(ogTitle);
+
+            const ogDesc = document.createElement("meta");
+            ogDesc.setAttribute("property", "og:description");
+            ogDesc.content = meta.description;
+            document.head.appendChild(ogDesc);
+        }
+    </script>
+
+
     <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700&display=swap"
@@ -157,28 +286,28 @@
         <div class="products-container">
             <div class="products-grid" id="productsGrid">
                 <div class="product">
-                    <img src="./img/prozori/IMG-20251015-WA0040.jpg" alt="Proizvod 1">
+                    <img src="./img/prozori/IMG-20251015-WA0040.jpg" alt="PVC prozori izradeni po mjeri">
                     <div class="product-overlay">
                         <h3>PVC Prozori</h3>
                         <a href="proizvodi.html?type=prozori" class="product-btn">Pogledaj više</a>
                     </div>
                 </div>
                 <div class="product">
-                    <img src="./img/vrata/IMG-20251015-WA0037.jpg" alt="Proizvod 2">
+                    <img src="./img/vrata/IMG-20251015-WA0037.jpg" alt="Aluminijska vrata izradena po mjeri">
                     <div class="product-overlay">
                         <h3>ALU Vrata</h3>
                         <a href="proizvodi.html?type=vrata" class="product-btn">Pogledaj više</a>
                     </div>
                 </div>
                 <div class="product">
-                    <img src="./img/bg_2.png" alt="Proizvod 3">
+                    <img src="./img/bg_2.png" alt="Klizne PVC stijene izradene po mjeri">
                     <div class="product-overlay">
                         <h3>Klizne stijene</h3>
                         <a href="proizvodi.html?type=klizne_stijene" class="product-btn">Pogledaj više</a>
                     </div>
                 </div>
                 <div class="product">
-                    <img src="./img/kompletne_kuce/IMG-20251015-WA0042.jpg" alt="Proizvod 4">
+                    <img src="./img/kompletne_kuce/IMG-20251015-WA0042.jpg" alt="Zavrseni namjesteni prozori na kuci">
                     <div class="product-overlay">
                         <h3>Završeni projekti</h3>
                         <a href="proizvodi.html?type=zavrseni_projekti" class="product-btn">Pogledaj više</a>

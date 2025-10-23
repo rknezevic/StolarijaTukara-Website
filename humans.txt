@@ -1,0 +1,13 @@
+/* TEAM */
+Developer: Robert Knežević
+Designer: Robert Knežević
+Website: https://stolarija-tukara.hr
+From: Croatia
+Contact: knezevic3112@gmail.com
+
+/* SITE */
+Last update: 2025-10-23
+Language: Croatian (hr)
+Doctype: HTML5
+Standards: W3C Valid
+Hosting: Vercel

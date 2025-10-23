@@ -5,6 +5,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proizvodi - Stolarija Tukara</title>
+    <!-- SEO META TAGOVI -->
+    <meta name="description"
+        content="Pogledajte naše PVC prozore, ALU vrata, klizne stijene i završene projekte izrađene po mjeri. Stolarija Tukara nudi modernu i dugotrajnu stolariju visoke kvalitete.">
+    <meta name="keywords"
+        content="stolarija, PVC prozori, ALU vrata, klizne stijene, zavrseni projekti, komarnici, stolarija Babina Greda, Gealan profili, izrada prozora i vrata, stolarija po mjeri">
+    <meta name="author" content="Stolarija Tukara">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="hr">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph (Facebook, WhatsApp) -->
+    <meta property="og:title" content="Proizvodi - Stolarija Tukara">
+    <meta property="og:description"
+        content="PVC prozori, ALU vrata, klizne stijene i završeni projekti izrađeni po mjeri. Stolarija Tukara – kvaliteta koja traje.">
+    <meta property="og:image" content="https://stolarija-tukara.hr/img/preview.png">
+    <!-- zamijeni ako koristiš drugi naziv -->
+    <meta property="og:url" content="https://stolarija-tukara.hr/proizvodi.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hr_HR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Proizvodi - Stolarija Tukara">
+    <meta name="twitter:description"
+        content="Pogledajte našu ponudu PVC i ALU stolarije, kliznih stijena i završnih projekata.">
+    <meta name="twitter:image" content="https://stolarija-tukara.hr/img/preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://stolarija-tukara.hr/proizvodi.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+
+    <!-- Structured Data (schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProductCollection",
+      "name": "Proizvodi - Stolarija Tukara",
+      "url": "https://stolarija-tukara.hr/proizvodi.html",
+      "image": "https://stolarija-tukara.hr/img/preview.jpg",
+      "description": "PVC i ALU stolarija po mjeri — prozori, vrata, klizne stijene i završeni projekti.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Stolarija Tukara"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Naši proizvodi",
+        "itemListElement": [
+          {
+            "@type": "Product",
+            "name": "PVC Prozori",
+            "description": "Izrađeni od GEALAN profila — energetski učinkoviti i dugotrajni.",
+            "image": "https://stolarija-tukara.hr/img/prozori/IMG-20251015-WA0040.jpg"
+          },
+          {
+            "@type": "Product",
+            "name": "ALU Vrata",
+            "description": "Čvrsta i elegantna aluminijska vrata modernog dizajna.",
+            "image": "https://stolarija-tukara.hr/img/vrata/IMG-20251015-WA0037.jpg"
+          },
+          {
+            "@type": "Product",
+            "name": "Klizne stijene",
+            "description": "HST, PSK i Smoovio sustavi koji donose svjetlost i prostranost.",
+            "image": "https://stolarija-tukara.hr/img/bg_2.png"
+          },
+          {
+            "@type": "Product",
+            "name": "Završeni projekti",
+            "description": "Primjeri izvedenih projekata s PVC i drvenom stolarijom.",
+            "image": "https://stolarija-tukara.hr/img/kompletne_kuce/IMG-20251015-WA0042.jpg"
+          }
+        ]
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css" />
     <style>
         body {
@@ -393,61 +472,65 @@
         const productData = {
             prozori: {
                 title: "PVC Prozori",
-                description: "PVC prozori izrađeni od GEALAN profila pružaju izvrsnu toplinsku i zvučnu izolaciju, dugotrajnost i moderan dizajn.",
+                description:
+                    "PVC prozori izrađeni od GEALAN profila pružaju izvrsnu toplinsku i zvučnu izolaciju, dugotrajnost i moderan dizajn.",
                 images: [
-                    "./img/prozori/IMG-20251015-WA0009.jpg",
-                    "./img/prozori/IMG-20251015-WA0021.jpg",
-                    "./img/prozori/IMG-20251015-WA0022.jpg",
-                    "./img/prozori/IMG-20251015-WA0023.jpg",
-                    "./img/prozori/IMG-20251015-WA0025.jpg",
-                    "./img/prozori/IMG-20251015-WA0028.jpg",
-                    "./img/prozori/IMG-20251015-WA0030.jpg",
-                    "./img/prozori/IMG-20251015-WA0032.jpg",
-                    "./img/prozori/IMG-20251015-WA0040.jpg"
+                    { src: "./img/prozori/IMG-20251015-WA0009.jpg", alt: "PVC prozori izrađeni po mjeri s GEALAN profilima" },
+                    { src: "./img/prozori/IMG-20251015-WA0021.jpg", alt: "Bijeli PVC prozor s troslojnim staklom" },
+                    { src: "./img/prozori/IMG-20251015-WA0022.jpg", alt: "PVC prozori s visokom toplinskom izolacijom" },
+                    { src: "./img/prozori/IMG-20251015-WA0023.jpg", alt: "Moderna PVC stolarija ugrađena u obiteljskoj kući" },
+                    { src: "./img/prozori/IMG-20251015-WA0025.jpg", alt: "PVC prozori s nagibno-otklopnim sustavom" },
+                    { src: "./img/prozori/IMG-20251015-WA0028.jpg", alt: "Ugradnja PVC prozora s Gealan S8000 profilom" },
+                    { src: "./img/prozori/IMG-20251015-WA0030.jpg", alt: "PVC prozor s modernim okvirom i troslojnim staklom" },
+                    { src: "./img/prozori/IMG-20251015-WA0032.jpg", alt: "PVC stolarija u dnevnom boravku s velikim prozorima" },
+                    { src: "./img/prozori/IMG-20251015-WA0040.jpg", alt: "Ugrađeni PVC prozori visoke energetske učinkovitosti" }
                 ]
             },
+
             vrata: {
                 title: "ALU Vrata",
-                description: "Aluminijska vrata kombiniraju eleganciju i čvrstoću, idealna su za moderne domove i poslovne prostore.",
+                description:
+                    "Aluminijska vrata kombiniraju eleganciju i čvrstoću, idealna su za moderne domove i poslovne prostore.",
                 images: [
-                    "./img/vrata/IMG-20251015-WA0005.jpg",
-                    "./img/vrata/IMG-20251015-WA0006.jpg",
-                    "./img/vrata/IMG-20251015-WA0007.jpg",
-                    "./img/vrata/IMG-20251015-WA0018.jpg",
-                    "./img/vrata/IMG-20251015-WA0019.jpg",
-                    "./img/vrata/IMG-20251015-WA0020.jpg",
-                    "./img/vrata/IMG-20251015-WA0026.jpg",
-                    "./img/vrata/IMG-20251015-WA0037.jpg",
-                    "./img/vrata/IMG-20251015-WA0039.jpg",
-                    "./img/vrata/IMG-20251015-WA0044.jpg"
-
+                    { src: "./img/vrata/IMG-20251015-WA0005.jpg", alt: "Aluminijska ulazna vrata modernog dizajna" },
+                    { src: "./img/vrata/IMG-20251015-WA0006.jpg", alt: "Siva ALU vrata s dekorativnim staklom" },
+                    { src: "./img/vrata/IMG-20251015-WA0007.jpg", alt: "Aluminijska vrata izrađena po mjeri s bočnim staklom" },
+                    { src: "./img/vrata/IMG-20251015-WA0018.jpg", alt: "Moderna aluminijska vrata za obiteljsku kuću" },
+                    { src: "./img/vrata/IMG-20251015-WA0019.jpg", alt: "ALU vrata s elegantnim metalnim okvirom" },
+                    { src: "./img/vrata/IMG-20251015-WA0020.jpg", alt: "Vanjska aluminijska vrata s mat staklom" },
+                    { src: "./img/vrata/IMG-20251015-WA0026.jpg", alt: "Ugradnja aluminijskih vrata u poslovnom prostoru" },
+                    { src: "./img/vrata/IMG-20251015-WA0037.jpg", alt: "Smeđa aluminijska vrata po mjeri" },
+                    { src: "./img/vrata/IMG-20251015-WA0039.jpg", alt: "ALU vrata s drvenim efektom i visokom izdržljivošću" },
+                    { src: "./img/vrata/IMG-20251015-WA0044.jpg", alt: "Ulazna aluminijska vrata izrađena po narudžbi" }
                 ]
             },
+
             klizne_stijene: {
                 title: "Klizne stijene",
-                description: "Klizne stijene u HST, PSK i Smoovio sustavima omogućuju prostranost i maksimalno svjetlo u prostoru.",
+                description:
+                    "Klizne stijene u HST, PSK i Smoovio sustavima omogućuju prostranost i maksimalno svjetlo u prostoru.",
                 images: [
-                    "./img/klizne_stijene/IMG-20251015-WA0010.jpg",
-                    "./img/klizne_stijene/IMG-20251015-WA0013.jpg",
-                    "./img/klizne_stijene/IMG-20251015-WA0017.jpg",
-                    "./img/klizne_stijene/IMG-20251015-WA0024.jpg",
-                    "./img/klizne_stijene/IMG-20251015-WA0027.jpg",
-                    "./img/klizne_stijene/IMG-20251015-WA0031.jpg",
-                    "./img/klizne_stijene/IMG-20251015-WA0033.jpg",
-
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0010.jpg", alt: "Klizna stijena HST sustava za terasu" },
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0013.jpg", alt: "Velika PVC klizna stijena s panoramskim pogledom" },
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0017.jpg", alt: "Staklena klizna stijena u dnevnom boravku" },
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0024.jpg", alt: "HST klizne stijene izrađene od Gealan profila" },
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0027.jpg", alt: "PVC klizne stijene s niskim pragom" },
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0031.jpg", alt: "Moderna PSK klizna stijena s aluminijskim okvirom" },
+                    { src: "./img/klizne_stijene/IMG-20251015-WA0033.jpg", alt: "Smoovio klizne stijene bez praga – energetski učinkovite" }
                 ]
             },
+
             zavrseni_projekti: {
                 title: "Završeni projekti",
-                description: "Naši završeni projekti prikazuju kvalitetu i preciznost izvedbe u stvarnim objektima. U projektima su korišteni sustavi PVC i drvene stolarije – prozori i vrata izrađeni po mjeri, koji kombiniraju funkcionalnost, estetiku i dugotrajnost.",
+                description:
+                    "Naši završeni projekti prikazuju kvalitetu i preciznost izvedbe u stvarnim objektima. U projektima su korišteni sustavi PVC i drvene stolarije – prozori i vrata izrađeni po mjeri, koji kombiniraju funkcionalnost, estetiku i dugotrajnost.",
                 images: [
-                    "./img/kompletne_kuce/IMG-20251015-WA0016.jpg",
-                    "./img/kompletne_kuce/IMG-20251015-WA0041.jpg",
-                    "./img/kompletne_kuce/IMG-20251015-WA0042.jpg",
-                    "./img/plava_stolarija/IMG-20251015-WA0004.jpg",
-                    "./img/plava_stolarija/IMG-20251015-WA0004.jpg",
-                    "./img/plava_stolarija/IMG-20251015-WA0004.jpg",
-
+                    { src: "./img/kompletne_kuce/IMG-20251015-WA0016.jpg", alt: "Kuća opremljena PVC prozorima i vratima Stolarije Tukara" },
+                    { src: "./img/kompletne_kuce/IMG-20251015-WA0041.jpg", alt: "Završeni projekt s drvenom stolarijom – prozori i vrata" },
+                    { src: "./img/kompletne_kuce/IMG-20251015-WA0042.jpg", alt: "Moderna kuća s ugrađenom PVC i ALU stolarijom" },
+                    { src: "./img/plava_stolarija/IMG-20251015-WA0004.jpg", alt: "Plava stolarija izrađena po mjeri – unikatni prozori i vrata" },
+                    { src: "./img/plava_stolarija/IMG-20251015-WA0004.jpg", alt: "Drvena stolarija plave boje u završnom projektu" },
+                    { src: "./img/plava_stolarija/IMG-20251015-WA0004.jpg", alt: "Unikatna plava stolarija u stambenom objektu" }
                 ]
             }
         };
@@ -463,8 +546,14 @@
   </div>
   <p>${product.description}</p>
   <div class="product-gallery">
-    ${product.images.map((src, i) => `<img src="${src}" data-index="${i}" alt="${product.title}">`).join("")}
-  </div>
+  ${product.images
+                    .map(
+                        (img, i) =>
+                            `<img src="${img.src}" alt="${img.alt}" data-index="${i}" loading="lazy">`
+                    )
+                    .join("")}
+</div>
+
 `;
 
         } else {
@@ -528,6 +617,83 @@
             // Ukloni preloader nakon fade-out
             setTimeout(() => preloader.remove(), 600);
         });
+
+        // === JSON-LD DYNAMIC SCHEMA ===
+        const schemaData = {
+            prozori: {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": "PVC Prozori",
+                "description": "PVC prozori izrađeni po mjeri od GEALAN profila. Visoka toplinska i zvučna izolacija, moderan dizajn i dugotrajnost.",
+                "brand": { "@type": "Brand", "name": "Stolarija Tukara" },
+                "image": productData.prozori.images.map(img => `https://stolarija-tukara.hr/${img.src.replace('./', '')}`),
+                "material": "PVC",
+                "category": "Windows",
+                "productionDate": "2025",
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock",
+                    "price": "Na upit"
+                }
+            },
+
+            vrata: {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": "ALU Vrata",
+                "description": "Aluminijska vrata izrađena po mjeri. Spoj elegancije, izdržljivosti i sigurnosti za domove i poslovne prostore.",
+                "brand": { "@type": "Brand", "name": "Stolarija Tukara" },
+                "image": productData.vrata.images.map(img => `https://stolarija-tukara.hr/${img.src.replace('./', '')}`),
+                "material": "Aluminij",
+                "category": "Doors",
+                "productionDate": "2025",
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock",
+                    "price": "Na upit"
+                }
+            },
+
+            klizne_stijene: {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": "Klizne stijene",
+                "description": "Klizne stijene HST, PSK i Smoovio sustava — maksimalno svjetlo i energetska učinkovitost bez pragova.",
+                "brand": { "@type": "Brand", "name": "Stolarija Tukara" },
+                "image": productData.klizne_stijene.images.map(img => `https://stolarija-tukara.hr/${img.src.replace('./', '')}`),
+                "material": "PVC i aluminij",
+                "category": "Sliding Doors",
+                "productionDate": "2025",
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock",
+                    "price": "Na upit"
+                }
+            },
+
+            zavrseni_projekti: {
+                "@context": "https://schema.org/",
+                "@type": "CreativeWork",
+                "name": "Završeni projekti Stolarije Tukara",
+                "description": "Pregled završenih projekata Stolarije Tukara koji prikazuju kvalitetu izrade PVC i drvene stolarije u stvarnim objektima.",
+                "creator": { "@type": "Organization", "name": "Stolarija Tukara" },
+                "image": productData.zavrseni_projekti.images.map(img => `https://stolarija-tukara.hr/${img.src.replace('./', '')}`),
+                "genre": "Stolarija, Izrada po mjeri, Građevinski projekti",
+                "dateCreated": "2025-10-23",
+                "url": "https://stolarija-tukara.hr/proizvodi.html?type=zavrseni_projekti"
+            }
+        };
+
+        // umetni schema tag ovisno o odabranom tipu
+        if (schemaData[type]) {
+            const ld = document.createElement("script");
+            ld.type = "application/ld+json";
+            ld.textContent = JSON.stringify(schemaData[type], null, 2);
+            document.head.appendChild(ld);
+        }
 
     </script>
 </body>
