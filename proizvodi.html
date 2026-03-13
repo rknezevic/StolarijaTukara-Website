@@ -599,7 +599,8 @@
 
         function openLightbox(index) {
             currentIndex = index;
-            lightboxImg.src = product.images[currentIndex];
+            lightboxImg.src = product.images[currentIndex].src;
+            lightboxImg.alt = product.images[currentIndex].alt;
             lightbox.style.display = "flex";
         }
 
@@ -609,12 +610,14 @@
 
         function showNext() {
             currentIndex = (currentIndex + 1) % product.images.length;
-            lightboxImg.src = product.images[currentIndex];
+            lightboxImg.src = product.images[currentIndex].src;
+            lightboxImg.alt = product.images[currentIndex].alt;
         }
 
         function showPrev() {
             currentIndex = (currentIndex - 1 + product.images.length) % product.images.length;
-            lightboxImg.src = product.images[currentIndex];
+            lightboxImg.src = product.images[currentIndex].src;
+            lightboxImg.alt = product.images[currentIndex].alt;
         }
 
         document.addEventListener("click", (e) => {
