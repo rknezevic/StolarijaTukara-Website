@@ -70,71 +70,6 @@
 }
 </script>
 
-    <!-- Dinamički SEO meta tagovi -->
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const type = urlParams.get("type");
-
-        const seoMeta = {
-            prozori: {
-                title: "PVC Prozori | Stolarija Tukara",
-                description:
-                    "PVC prozori izrađeni po mjeri od GEALAN profila. Osigurajte toplinsku i zvučnu izolaciju uz moderan dizajn i dugotrajnost. Stolarija Tukara – kvaliteta koja traje.",
-                keywords:
-                    "PVC prozori, Gealan, PVC stolarija, prozori po mjeri, energetski učinkoviti prozori, stolarija Babina Greda",
-            },
-            vrata: {
-                title: "ALU Vrata | Stolarija Tukara",
-                description:
-                    "Elegantna i čvrsta aluminijska vrata izrađena po mjeri. Idealna za moderne domove i poslovne prostore. Izrada i montaža – Stolarija Tukara.",
-                keywords:
-                    "ALU vrata, aluminijska vrata, vanjska vrata, ulazna vrata, aluminijska stolarija, moderna vrata",
-            },
-            klizne_stijene: {
-                title: "Klizne stijene | Stolarija Tukara",
-                description:
-                    "HST, PSK i Smoovio klizne stijene – maksimalno svjetlo, minimalan prag i vrhunska toplinska izolacija. Rješenja po mjeri iz Stolarije Tukara.",
-                keywords:
-                    "klizne stijene, HST stijene, PSK, Smoovio, staklene stijene, prozori, vrata, aluminij, PVC, Gealan",
-            },
-            zavrseni_projekti: {
-                title: "Završeni projekti | Stolarija Tukara",
-                description:
-                    "Pregled naših završenih projekata s PVC i drvenom stolarijom. Pogledajte primjere izrade prozora i vrata u stvarnim objektima.",
-                keywords:
-                    "završeni projekti, reference, stolarija projekti, drvena stolarija, PVC prozori, ALU vrata, Babina Greda",
-            },
-        };
-
-        const meta = seoMeta[type];
-
-        if (meta) {
-            document.title = meta.title;
-
-            const metaDesc = document.createElement("meta");
-            metaDesc.name = "description";
-            metaDesc.content = meta.description;
-            document.head.appendChild(metaDesc);
-
-            const metaKeywords = document.createElement("meta");
-            metaKeywords.name = "keywords";
-            metaKeywords.content = meta.keywords;
-            document.head.appendChild(metaKeywords);
-
-            // Open Graph za dijeljenje
-            const ogTitle = document.createElement("meta");
-            ogTitle.setAttribute("property", "og:title");
-            ogTitle.content = meta.title;
-            document.head.appendChild(ogTitle);
-
-            const ogDesc = document.createElement("meta");
-            ogDesc.setAttribute("property", "og:description");
-            ogDesc.content = meta.description;
-            document.head.appendChild(ogDesc);
-        }
-    </script>
-
-
     <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;700&display=swap"
@@ -145,7 +80,7 @@
 <body>
 
     <!-- Navigacija -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Glavna navigacija">
         <div class="logo">Stolarija Tukara</div>
         <ul class="nav-links">
             <li><a href="#home">Početna</a></li>
@@ -160,9 +95,9 @@
         <div class="mobile-logo-box">
             <span class="mobile-logo-text">Stolarija Tukara</span>
         </div>
-        <div class="hamburger">
+        <button class="hamburger" aria-label="Otvori izbornik" aria-expanded="false">
             <span></span><span></span><span></span>
-        </div>
+        </button>
     </div>
 
     <!-- Početna sekcija -->
@@ -283,7 +218,7 @@
         </div>
     </section>
 
-    <section id="products" section class="products-section">
+    <section id="products" class="products-section">
         <h2>Proizvodi</h2>
         <div class="products-container">
             <div class="products-grid" id="productsGrid">
@@ -297,7 +232,7 @@
                 <div class="product">
                     <img src="./img/vrata/IMG-20251015-WA0037.jpg" alt="Aluminijska vrata izradena po mjeri">
                     <div class="product-overlay">
-                        <h3>ALU Vrata</h3>
+                        <h3>Drvena i ALU vrata</h3>
                         <a href="proizvodi.html?type=vrata" class="product-btn">Pogledaj više</a>
                     </div>
                 </div>
@@ -316,8 +251,8 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-btn prev" onclick="scrollProducts(-1)">❮</button>
-            <button class="carousel-btn next" onclick="scrollProducts(1)">❯</button>
+            <button class="carousel-btn prev" onclick="scrollProducts(-1)" aria-label="Prethodni proizvod">❮</button>
+            <button class="carousel-btn next" onclick="scrollProducts(1)" aria-label="Sljedeći proizvod">❯</button>
         </div>
     </section>
 
@@ -346,11 +281,10 @@
             </div>
 
             <div class="partner-logo">
-                <a href="https://www.gealan.de/en/home/" target="_blank">
-                    <img src="./img/gealan-logo2.png" alt="Gealan logo">
+                <a href="https://www.gealan.de/en/home/" target="_blank" rel="noopener noreferrer">
+                    <img src="./img/gealan-logo2.png" alt="Gealan logo - partner za PVC profile">
                 </a>
                 <p>Naš partner za PVC profile</p>
-
             </div>
         </div>
     </section>
@@ -372,13 +306,16 @@
             <div class="form-section">
                 <h3>Zatražite ponudu</h3>
                 <form id="contactForm">
-                    <input type="text" name="name" placeholder="Ime i prezime" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="message" placeholder="Poruka" required></textarea>
+                    <label for="name" class="sr-only">Ime i prezime</label>
+                    <input type="text" id="name" name="name" placeholder="Ime i prezime" required>
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <label for="message" class="sr-only">Poruka</label>
+                    <textarea id="message" name="message" placeholder="Poruka" required></textarea>
                     <button type="submit">Pošalji</button>
                 </form>
 
-                <p id="statusMsg" style="margin-top:10px;"></p>
+                <p id="statusMsg"></p>
             </div>
 
             <div class="faq-section">
@@ -399,6 +336,12 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Stolarija Tukara. Sva prava pridržana.</p>
+        <p>Kralja Tomislava 21A, 32276 Babina Greda</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
