@@ -815,6 +815,128 @@ h2 {
     background-clip: text;
 }
 
+/* Footer */
+.site-footer {
+    background: linear-gradient(135deg, #3a2e0a, #5c4e01);
+    color: #e6d9b8;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 60px 80px;
+}
+
+.footer-contact h3,
+.footer-nav h3,
+.footer-social h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #f6d28a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.footer-contact p {
+    margin: 6px 0;
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    color: #e6d9b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #f6d28a;
+}
+
+.footer-hours {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(230, 217, 184, 0.2);
+}
+
+.footer-hours p {
+    margin: 4px 0;
+    font-size: 0.85rem;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav ul li {
+    margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+    color: #e6d9b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-nav ul li a:hover {
+    color: #f6d28a;
+}
+
+.footer-social a {
+    color: #e6d9b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.footer-social a:hover {
+    color: #f6d28a;
+}
+
+.footer-partner {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(230, 217, 184, 0.2);
+}
+
+.footer-partner p {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #b8a97a;
+}
+
+.footer-partner img {
+    max-width: 120px;
+    height: auto;
+    filter: brightness(90%) contrast(105%);
+    transition: transform 0.3s ease;
+}
+
+.footer-partner img:hover {
+    transform: scale(1.05);
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 0.85rem;
+    color: #b8a97a;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
 /* RESPONSIVNOST */
 @media (max-width: 1024px) {
     .navbar {
@@ -911,6 +1033,11 @@ h2 {
 
     .about-section p {
         font-size: 1.1rem;
+    }
+
+    .footer-main {
+        padding: 50px 40px;
+        gap: 30px;
     }
 }
 
@@ -1131,6 +1258,24 @@ h2 {
     .about-section p {
         font-size: 1rem;
         padding: 0 20px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        padding: 40px 25px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 20px;
+    }
+
+    .footer-nav ul li {
+        margin-bottom: 0;
     }
 }
 
@@ -1437,6 +1582,24 @@ h2 {
         font-size: 0.75rem;
         color: #f0e8c5;
     }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        padding: 30px 15px;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .footer-contact h3,
+    .footer-nav h3,
+    .footer-social h3 {
+        font-size: 1rem;
+    }
+
+    .footer-bottom {
+        padding: 14px 15px;
+        font-size: 0.8rem;
+    }
 }
 
 /* SPRIJEČI HORIZONTALNI SCROLL, OPTIMIZIRANO */
@@ -1468,20 +1631,6 @@ body {
 /* Ako trust-banner iskače van, ograniči mu overflow */
 .trust-banner {
     overflow: hidden;
-}
-
-/* Footer */
-.site-footer {
-    background: linear-gradient(135deg, #3a2e0a, #5c4e01);
-    text-align: center;
-    padding: 30px 20px;
-    color: #e6d9b8;
-    font-size: 0.9rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-.site-footer p {
-    margin: 4px 0;
 }
 
 /* Kontakt linkovi */
