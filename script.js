@@ -63,28 +63,37 @@ const mobileHeader = document.querySelector(".mobile-header");
 const mobileCta = document.querySelector(".mobile-cta");
 const contactSection = document.getElementById("contact");
 
-window.addEventListener("scroll", () => {
+// Najviše jedno ažuriranje po frameu; sva mjerenja (čitanja layouta) idu prije
+// promjena klasa, kako preglednik ne bi morao preračunavati layout usred funkcije.
+let scrollTicking = false;
+
+function onScroll() {
+    scrollTicking = false;
+    const y = window.scrollY;
+    const viewport = window.innerHeight;
+
+    // 1) čitanja
     let current = "";
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (scrollY >= sectionTop && scrollY < sectionTop + section.clientHeight) {
-        if (scrollY >= sectionTop && scrollY < sectionTop + section.clientHeight) {
-            current = section.getAttribute("id");
-        }
-    }});
+        const top = section.offsetTop - 150;
+        if (y >= top && y < top + section.offsetHeight) current = section.id;
+    });
+    const atContact = contactSection ? contactSection.getBoundingClientRect().top < viewport : false;
+
+    // 2) pisanja
     navLinksAll.forEach(link => {
         link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
     });
-
-    const scrolled = window.scrollY > 50;
+    const scrolled = y > 50;
     if (navbar) navbar.classList.toggle("scrolled", scrolled);
     if (mobileHeader) mobileHeader.classList.toggle("scrolled", scrolled);
+    if (mobileCta) mobileCta.classList.toggle("visible", y > viewport * 0.8 && !atContact);
+}
 
-    if (mobileCta && contactSection) {
-        const pastHero = window.scrollY > window.innerHeight * 0.8;
-        const atContact = contactSection.getBoundingClientRect().top < window.innerHeight;
-        mobileCta.classList.toggle("visible", pastHero && !atContact);
-    }
+window.addEventListener("scroll", () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(onScroll);
 }, { passive: true });
 
 // PRODUCT CAROUSEL
@@ -98,10 +107,12 @@ function getItemsPerView() {
     return 3;
 }
 
+// Pomak u postocima (svaka kartica je 100/itemsPerView % širine), pa nije potrebno
+// mjeriti širinu kartice – to je ranije uzrokovalo prisilni ponovni proračun layouta.
 function updateCarousel() {
     if (products.length > 0) {
-        const offset = currentIndex * products[0].clientWidth;
-        grid.style.transform = `translateX(-${offset}px)`;
+        const offset = currentIndex * (100 / getItemsPerView());
+        grid.style.transform = `translateX(-${offset}%)`;
     }
 }
 
@@ -114,7 +125,6 @@ function scrollProducts(direction) {
 }
 
 if (grid && products.length > 0) {
-    updateCarousel();
     window.addEventListener('resize', () => {
         currentIndex = 0;
         updateCarousel();

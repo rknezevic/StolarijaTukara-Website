@@ -182,14 +182,14 @@ select {
 }
 
 
+/* Animira se samo pomak, ne prozirnost: tekst je vidljiv odmah, pa se
+   najveći element (LCP) ne čeka 1,5 s da se animacija završi. */
 @keyframes fadeInDown {
     from {
-        opacity: 0;
-        transform: translate(-50%, -70%);
+        transform: translate(-50%, -62%);
     }
 
     to {
-        opacity: 1;
         transform: translate(-50%, -50%);
     }
 }
