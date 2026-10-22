@@ -20,6 +20,32 @@ body.product-page {
     padding: 110px 30px 60px;
     min-height: auto;
     background: none;
+    color: #fff;
+    text-align: center;
+}
+
+/* Linkovi u navigaciji i logo ne lome se u dva reda */
+.product-page .logo,
+.product-page .nav-links a {
+    white-space: nowrap;
+}
+
+.product-page .navbar {
+    gap: 24px;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .product-page .logo {
+        font-size: 1.2rem;
+    }
+
+    .product-page .nav-links {
+        gap: 20px;
+    }
+
+    .product-page .nav-links a {
+        font-size: 0.9rem;
+    }
 }
 
 .breadcrumbs {
