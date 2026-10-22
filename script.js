@@ -71,7 +71,7 @@ window.addEventListener("scroll", () => {
         if (scrollY >= sectionTop && scrollY < sectionTop + section.clientHeight) {
             current = section.getAttribute("id");
         }
-    });
+    }});
     navLinksAll.forEach(link => {
         link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
     });
@@ -100,7 +100,6 @@ function getItemsPerView() {
 
 function updateCarousel() {
     if (products.length > 0) {
-        const offset = currentIndex * products[0].clientWidth;
         const offset = currentIndex * products[0].clientWidth;
         grid.style.transform = `translateX(-${offset}px)`;
     }
