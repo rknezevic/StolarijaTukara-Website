@@ -1,5 +1,12 @@
 {
   "dependencies": {
     "resend": "^6.2.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "scripts": {
+    "images": "node tools/optimize-images.mjs",
+    "pages": "node tools/generate-product-pages.mjs"
   }
 }

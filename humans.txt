@@ -6,7 +6,7 @@ From: Croatia
 Contact: knezevic3112@gmail.com
 
 /* SITE */
-Last update: 2025-10-23
+Last update: 2026-10-22
 Language: Croatian (hr)
 Doctype: HTML5
 Standards: W3C Valid

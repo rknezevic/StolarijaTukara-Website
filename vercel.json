@@ -1,0 +1,21 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/proizvodi(.html)?", "has": [{ "type": "query", "key": "type", "value": "prozori" }], "destination": "/pvc-prozori", "permanent": true },
+    { "source": "/proizvodi(.html)?", "has": [{ "type": "query", "key": "type", "value": "vrata" }], "destination": "/alu-vrata", "permanent": true },
+    { "source": "/proizvodi(.html)?", "has": [{ "type": "query", "key": "type", "value": "klizne_stijene" }], "destination": "/klizne-stijene", "permanent": true },
+    { "source": "/proizvodi(.html)?", "has": [{ "type": "query", "key": "type", "value": "zavrseni_projekti" }], "destination": "/zavrseni-projekti", "permanent": true },
+    { "source": "/proizvodi(.html)?", "destination": "/#products", "permanent": true },
+    { "source": "/proizvodi/prozori", "destination": "/pvc-prozori", "permanent": true },
+    { "source": "/proizvodi/vrata", "destination": "/alu-vrata", "permanent": true },
+    { "source": "/proizvodi/klizne-stijene", "destination": "/klizne-stijene", "permanent": true },
+    { "source": "/proizvodi/zavrseni-projekti", "destination": "/zavrseni-projekti", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/img/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+    }
+  ]
+}

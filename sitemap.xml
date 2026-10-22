@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
-    <loc>https://stolarija-tukara.hr/</loc>
+    <loc>https://www.stolarija-tukara.hr/</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
-
   <url>
-    <loc>https://stolarija-tukara.hr/proizvodi/prozori</loc>
+    <loc>https://www.stolarija-tukara.hr/pvc-prozori</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
-
   <url>
-    <loc>https://stolarija-tukara.hr/proizvodi/vrata</loc>
+    <loc>https://www.stolarija-tukara.hr/alu-vrata</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
-
   <url>
-    <loc>https://stolarija-tukara.hr/proizvodi/klizne-stijene</loc>
+    <loc>https://www.stolarija-tukara.hr/klizne-stijene</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
-
   <url>
-    <loc>https://stolarija-tukara.hr/proizvodi/zavrseni-projekti</loc>
+    <loc>https://www.stolarija-tukara.hr/zavrseni-projekti</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
-
+  <url>
+    <loc>https://www.stolarija-tukara.hr/privatnost</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
 </urlset>
